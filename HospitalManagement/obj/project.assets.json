@@ -12939,6 +12939,8 @@
       "Microsoft.AspNetCore.Http.Abstractions >= 2.2.0",
       "Microsoft.AspNetCore.Mvc.Formatters.Json >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
+      "Microsoft.EntityFrameworkCore >= 2.2.0",
+      "Microsoft.EntityFrameworkCore.SqlServer >= 2.2.0",
       "Microsoft.NETCore.App >= 2.2.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.2.3"
     ]
@@ -12950,11 +12952,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\AminSohail\\Desktop\\HospitalManagement1\\HospitalManagement\\HospitalManagement.csproj",
+      "projectUniqueName": "C:\\Users\\AminSohail\\Desktop\\HospitalManagement1\\New folder\\HospitalManagement\\HospitalManagement.csproj",
       "projectName": "HospitalManagement",
-      "projectPath": "C:\\Users\\AminSohail\\Desktop\\HospitalManagement1\\HospitalManagement\\HospitalManagement.csproj",
+      "projectPath": "C:\\Users\\AminSohail\\Desktop\\HospitalManagement1\\New folder\\HospitalManagement\\HospitalManagement.csproj",
       "packagesPath": "C:\\Users\\AminSohail\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\AminSohail\\Desktop\\HospitalManagement1\\HospitalManagement\\obj\\",
+      "outputPath": "C:\\Users\\AminSohail\\Desktop\\HospitalManagement1\\New folder\\HospitalManagement\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12967,8 +12969,7 @@
         "netcoreapp2.2"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "F:\\NuGet Packages\\NewtonSoft\\Package source": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.2": {
@@ -13000,6 +13001,14 @@
           },
           "Microsoft.AspNetCore.Razor.Design": {
             "suppressParent": "All",
+            "target": "Package",
+            "version": "[2.2.0, )"
+          },
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[2.2.0, )"
+          },
+          "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[2.2.0, )"
           },

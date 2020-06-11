@@ -14,7 +14,7 @@ export class HospitalManagementComponent {
   }
   
   patientObj:PatientModel= null;
-  // PatientList:Array<Patient>=new Array<Patient>();
+  patientList:Array<PatientModel>=new Array<PatientModel>();
   
   // Add(){
   //   this.PatientList.push(this.patientObj)
@@ -22,21 +22,22 @@ export class HospitalManagementComponent {
 
    Submit(){
      
-    //  this.Http.post("https://localhost:44372/Patient/Submit",this.patientObj)
-    //  .subscribe(data => {
-    //   let res:any = data; 
-    // },);
+        //  this.Http.post("https://localhost:44372/Patient/Submit",this.patientObj)
+        //  .subscribe(data => {
+        //   let res:any = data; 
+        // },);
 
       
-    this.Http.post("https://localhost:44372/Patient/Submit", this.patientObj)
-        .subscribe(
-           res=>this.Success(res),
-           res=>this.Error(res)
-       );
+          this.Http.post("https://localhost:44372/Patient/Submit", this.patientObj)
+              .subscribe(
+                res=>this.Success(res),
+                res=>this.Error(res)
+            );
 
    }
   Success(res){
-    alert("Data Inserted")
+    this.patientList=res
+    this.patientObj=new PatientModel()
   }
    
    Error(res){

@@ -60,3 +60,34 @@ C:\Users\AminSohail\Desktop\HospitalManagement1\HospitalManagement\obj\Debug\net
 C:\Users\AminSohail\Desktop\HospitalManagement1\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.dll
 C:\Users\AminSohail\Desktop\HospitalManagement1\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.pdb
 C:\Users\AminSohail\Desktop\HospitalManagement1\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.csproj.CopyComplete
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\bin\Debug\netcoreapp2.2\HospitalManagement.deps.json
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\bin\Debug\netcoreapp2.2\HospitalManagement.runtimeconfig.json
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\bin\Debug\netcoreapp2.2\HospitalManagement.runtimeconfig.dev.json
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\bin\Debug\netcoreapp2.2\HospitalManagement.dll
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\bin\Debug\netcoreapp2.2\HospitalManagement.pdb
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\bin\Debug\netcoreapp2.2\HospitalManagement.Views.dll
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\bin\Debug\netcoreapp2.2\HospitalManagement.Views.pdb
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.csprojAssemblyReference.cache
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.csproj.CoreCompileInputs.cache
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.RazorAssemblyInfo.cache
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.RazorAssemblyInfo.cs
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.AssemblyInfoInputs.cache
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.AssemblyInfo.cs
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.TagHelpers.input.cache
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.TagHelpers.output.cache
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.RazorCoreGenerate.cache
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\Razor\Views\Patient\PatientAdd.g.cshtml.cs
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.RazorTargetAssemblyInfo.cache
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.RazorTargetAssemblyInfo.cs
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.Views.pdb
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.dll
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.pdb
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.csproj.CopyComplete
