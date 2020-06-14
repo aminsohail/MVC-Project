@@ -12,7 +12,7 @@ export class HospitalManagementComponent {
   constructor(public Http:HttpClient){
     this.patientObj=new PatientModel()
   }
-  
+  errorMsg=[];
   patientObj:PatientModel= null;
   patientList:Array<PatientModel>=new Array<PatientModel>();
   
@@ -41,6 +41,7 @@ export class HospitalManagementComponent {
   }
    
    Error(res){
-
+    this.errorMsg=res;
+    
    }
 }

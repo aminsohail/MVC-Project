@@ -6,6 +6,12 @@
 
   
   <table>
+      <span style="color: red;" *ngIf="errorMsg.error[0]">
+        {{errorMsg.error[0].errorMessage}}
+      </span ><br/><br/>
+      <span style="color: red;" *ngIf="errorMsg.error[1]">
+        {{errorMsg.error[1].errorMessage}}
+      </span><br/><br/>
     <tr>
       <td>Patient name</td>
       <td>Patient Description</td>
