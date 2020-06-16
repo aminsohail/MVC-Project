@@ -36,8 +36,8 @@ export class HospitalManagementComponent {
 
    }
   Success(res){
-    this.patientList=res
-    this.patientObj=new PatientModel()
+    this.patientList=res;
+    this.patientObj=new PatientModel();
   }
    
    Error(res){

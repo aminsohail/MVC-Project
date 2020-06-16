@@ -9,8 +9,10 @@ namespace HospitalManagement.Models
 {
     public class PatientModel
     {
+        [Key]
+        public int id{ get; set; }
 
-         [Required]
+        [Required]
          [RegularExpression("^[a-z]{1,10}$")]
         public string name { get; set; }
 

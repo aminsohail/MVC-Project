@@ -67,7 +67,6 @@ C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\bi
 C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\bin\Debug\netcoreapp2.2\HospitalManagement.pdb
 C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\bin\Debug\netcoreapp2.2\HospitalManagement.Views.dll
 C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\bin\Debug\netcoreapp2.2\HospitalManagement.Views.pdb
-C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.csprojAssemblyReference.cache
 C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.csproj.CoreCompileInputs.cache
 C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.RazorAssemblyInfo.cache
 C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.RazorAssemblyInfo.cs

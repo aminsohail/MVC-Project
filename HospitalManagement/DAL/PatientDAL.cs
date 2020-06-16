@@ -19,7 +19,9 @@ namespace HospitalManagement.DAL
                 .ToTable("tb1Patient");
 
             modelBuilder.Entity<PatientModel>()
-                .HasKey(p => p.name);
+                .HasKey(p => p.id);
+         // modelBuilder.Entity<PatientModel>()
+           //     .Property(p => p.id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Computed)
         }
 
         public DbSet<PatientModel> PatientModels { get; set; }
