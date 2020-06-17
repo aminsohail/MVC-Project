@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {PatientModel} from './HospitalManagement.model'
+import { e } from '@angular/core/src/render3';
 
 
 @Component({
@@ -42,6 +43,7 @@ export class HospitalManagementComponent {
    
    Error(res){
     this.errorMsg=res;
+    
     
    }
 }
