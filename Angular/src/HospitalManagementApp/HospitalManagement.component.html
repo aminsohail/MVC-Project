@@ -3,10 +3,22 @@
                        formControlName="NameControl"
                        [(ngModel)]="patientObj.name"
                         value="" /><br /><br />
+         <div [hidden]="!(patientObj.formPatientGroup
+                        .controls['NameControl']
+                        .hasError('required'))">
+            Patient Name is required
+         </div>
+              
   Patient Problem: <input type="text" 
                           formControlName="ProblemDescriptionControl"
                           [(ngModel)]="patientObj.problemDescription" 
                           value="" /><br /><br />
+
+        <div  [hidden]="!(patientObj.formPatientGroup
+                        .controls['ProblemDescriptionControl']
+                        .hasError('required'))">
+          Patient Problem is required
+        </div>
   <input type="submit" [disabled]="!(patientObj.formPatientGroup.valid)"
                         value="submit" 
                         (click)="Submit()" /><br /><br /><br />
