@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {PatientModel} from './HospitalManagement.model'
-import { e } from '@angular/core/src/render3';
+import {PatientModel} from './HospitalManagement.model';
+import { HospitalManagementSearchComponent } from './hospital-management-search/hospital-management-search.component'
 
 
 @Component({
@@ -22,28 +22,28 @@ export class HospitalManagementComponent {
   // }
 
    Submit(){
-     
-        //  this.Http.post("https://localhost:44372/Patient/Submit",this.patientObj)
-        //  .subscribe(data => {
-        //   let res:any = data; 
-        // },);
 
-      
-          this.Http.post("https://localhost:44372/Patient/Submit", this.patientObj)
-              .subscribe(
-                res=>this.Success(res),
-                res=>this.Error(res)
-            );
+        let patientDetail={
+          id:this.patientObj.id,
+          name: this.patientObj.name,
+          problemDescription:this.patientObj.problemDescription
+        }
 
-   }
+              this.Http.post("https://localhost:44372/Patient/Submit", patientDetail)
+                  .subscribe(
+                    res=>this.Success(res),
+                    res=>this.Error(res)
+                );
+
+      }
   Success(res){
     this.patientList=res;
     this.patientObj=new PatientModel();
   }
    
    Error(res){
-    this.errorMsg=res;
-    
+   // this.errorMsg=res;
+    alert(res)
     
    }
 }

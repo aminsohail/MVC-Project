@@ -85,5 +85,17 @@ namespace HospitalManagement.Controllers
         {
             return View();
         }
+
+
+        public IActionResult Search(string patientName)
+        {
+            PatientDAL dal = new PatientDAL();
+            List<PatientModel> search = ( from temp in dal.PatientModels
+                                          where temp.name == patientName
+                                          select temp )
+                                          .ToList<PatientModel>();
+
+            return Ok(search);
+        }
     }
 }
