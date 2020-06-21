@@ -5,10 +5,12 @@ import {RouterModule} from "@angular/router"
 import { HospitalManagementComponent } from './HospitalManagement.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HospitalManagementSearchComponent } from './hospital-management-search/hospital-management-search.component';
+import { HospitalManagementMasterPageComponent } from './hospital-management-master-page/hospital-management-master-page.component';
 @NgModule({
   declarations: [
     HospitalManagementComponent,
-    HospitalManagementSearchComponent
+    HospitalManagementSearchComponent,
+    HospitalManagementMasterPageComponent
   ],
   imports: [
     RouterModule,

@@ -15,7 +15,7 @@ export class HospitalManagementSearchComponent{
   }
 
         Search(){
-          this.Http.get("https://localhost:44372/Patient/Search?patientName="+this.patientName)
+          this.Http.get("https://localhost:44372/api/PatientAPI?patientName="+this.patientName)
                    .subscribe(
                     res=>this.Success(res),
                     res=>this.Error(res)

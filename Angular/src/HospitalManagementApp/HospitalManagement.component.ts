@@ -29,7 +29,7 @@ export class HospitalManagementComponent {
           problemDescription:this.patientObj.problemDescription
         }
 
-              this.Http.post("https://localhost:44372/Patient/Submit", patientDetail)
+              this.Http.post("https://localhost:44372/api/PatientAPI", patientDetail)
                   .subscribe(
                     res=>this.Success(res),
                     res=>this.Error(res)
