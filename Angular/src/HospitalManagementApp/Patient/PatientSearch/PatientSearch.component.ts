@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { PatientModel } from '../HospitalManagement.model';
+import { PatientModel } from '../PatientDetailAdd/PatientAdd.model';
 
 @Component({
   selector: 'hospital-management-search',
-  templateUrl: './hospital-management-search.component.html',
-  styleUrls: ['./hospital-management-search.component.css']
+  templateUrl: './PatientSearch.component.html',
+  styleUrls: ['./PatientSearch.component.css']
 })
-export class HospitalManagementSearchComponent{
+export class PatientSearchComponent{
   patientName:string = "";
   patientModel: Array<PatientModel>=new Array <PatientModel>();
   constructor(public Http:HttpClient) { 

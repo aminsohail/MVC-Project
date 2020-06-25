@@ -1,8 +1,8 @@
-import { NgForm,
+import{ NgForm,
            FormGroup,
-               FormControl,
+                FormControl,
                    Validators,
-        FormBuilder} from '@angular/forms';
+        FormBuilder} from '@angular/forms'
 
 export class PatientModel{
     id: number=0;

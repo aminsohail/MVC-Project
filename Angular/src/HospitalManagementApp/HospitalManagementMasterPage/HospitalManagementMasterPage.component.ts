@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-hospital-management-master-page',
-  templateUrl: './hospital-management-master-page.component.html',
-  styleUrls: ['./hospital-management-master-page.component.css']
+  selector: 'app-root',
+  templateUrl: './HospitalManagementMasterPage.component.html',
+  styleUrls: ['./HospitalManagementMasterPage.component.css']
 })
 export class HospitalManagementMasterPageComponent implements OnInit {
 

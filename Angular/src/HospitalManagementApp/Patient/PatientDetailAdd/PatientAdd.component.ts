@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {PatientModel} from './HospitalManagement.model';
-import { HospitalManagementSearchComponent } from './hospital-management-search/hospital-management-search.component'
+import {PatientModel} from './PatientAdd.model';
 
 
 @Component({
   selector: 'app-root',
-  templateUrl: './HospitalManagement.component.html',
+  templateUrl: './PatientAdd.component.html',
 })
-export class HospitalManagementComponent {
+export class PatientAddComponent {
   title = 'HospitalManagement';
   constructor(public Http:HttpClient){
     this.patientObj=new PatientModel()

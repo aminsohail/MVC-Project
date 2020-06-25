@@ -30,8 +30,9 @@ namespace HospitalManagement.Controllers
             List<PatientModel> search = (from temp in dal.PatientModels
                                          where temp.name == patientName
                                          select temp)
-                                          .ToList<PatientModel>();
+                                         .ToList<PatientModel>();
 
+           
             return Ok(search);
         }
 
