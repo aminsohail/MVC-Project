@@ -3,33 +3,33 @@
   Patient Name: <input type="text"
                        formControlName="NameControl"
                        [(ngModel)]="patientObj.name"
-                        value="" /><br /><br />
+                        value="" /><br />
          <div [hidden]="!(patientObj.formPatientGroup
                         .controls['NameControl']
                         .hasError('required'))">
             Patient Name is required
-         </div>
+         </div><br /><br />
               
   Patient Problem: <input type="text" 
                           formControlName="ProblemDescriptionControl"
                           [(ngModel)]="patientObj.problemDescription" 
-                          value="" /><br /><br />
+                          value="" /><br />
 
         <div  [hidden]="!(patientObj.formPatientGroup
                         .controls['ProblemDescriptionControl']
                         .hasError('required'))">
           Patient Problem is required
-        </div>
+        </div><br /><br />
   <input type="submit" [disabled]="!(patientObj.formPatientGroup.valid)"
                         value="submit" 
                         (click)="Submit()" /><br /><br /><br />
-<br /><br /><br />
+<br />
 
 </form>
   <!-- <div *ngIf="">
     <span></span>
   </div>   -->
-  <table>
+  <table border="3px 5px" >
       <!-- <span style="color: red;" *ngIf="errorMsg.error[0]">
         {{errorMsg.error[0].errorMessage}}
       </span ><br/><br/>

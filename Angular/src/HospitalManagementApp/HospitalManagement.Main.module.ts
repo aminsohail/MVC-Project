@@ -11,11 +11,11 @@ import { HospitalManagementMasterPageComponent } from './HospitalManagementMaste
   imports: [
     RouterModule.forRoot([
       
-      {path:'PatientAdd', loadChildren:'./Patient/PatientDetailAdd/PatientAdd.module#PatientAddModule'},
+      {path:'Patient', loadChildren:'./Patient/PatientDetailAdd/PatientAdd.module#PatientAddModule'},
              //   loadChildren:()=> 
               //  import('./Patient/PatientDetailAdd/PatientAdd.module')
               // .then(m =>m.PatientAddModule)},
-      {path:'PatientSearch',loadChildren:'./Patient/PatientSearch/PatientSearch.module#PatientSearchModule'}
+      {path:'Patient',loadChildren:'./Patient/PatientSearch/PatientSearch.module#PatientSearchModule'}
             //    loadChildren:()=>
             //    import('./Patient/PatientSearch/PatientSearch.module')
              //   .then(m=>m.PatientSearchModule)}

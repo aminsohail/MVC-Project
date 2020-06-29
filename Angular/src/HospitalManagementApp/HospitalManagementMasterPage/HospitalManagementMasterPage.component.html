@@ -1,7 +1,46 @@
+<nav>
+  
+<ul style="margin-left: 900px;">
+    
+	<li>
+		<a href="#">
+			<span>Home</span>
+			<span>Home</span>
+		</a>
+	</li>
+	<li>
+		<a href="#">
+			<span>About</span>
+			<span>About</span>
+		</a>
+	</li>
+	<li>
+		<a [routerLink]="['Patient/Add']">
+			<span>Add Patient</span>
+			<span>Add Patient</span>
+		</a>
+	</li>
+	<li>
+		<a [routerLink]="['Patient/Search']">
+			<span>Search Patient</span>
+			<span>Search Patient</span>
+		</a>
+	</li>
+	<li>
+		<a href="#">
+			<span>Team</span>
+			<span>Team</span>
+		</a>
+	</li>
+	<li>
+		<a href="#">
+			<span>Contact</span>
+			<span>Contact</span>
+		</a>
+	</li>
+</ul>
+
+</nav>
+
 <h1>Welcome To Hospital Management</h1>
-
-
-<a [routerLink]="['PatientAdd/Add']">Add Patient</a> <br><br>
-
-<a [routerLink]="['PatientSearch/Search']">Search Patient</a><br>
-<router-outlet></router-outlet>
+<div style="margin-left: 300px;"><router-outlet></router-outlet></div>

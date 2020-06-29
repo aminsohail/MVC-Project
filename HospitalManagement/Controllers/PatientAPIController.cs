@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HospitalManagement.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/PatientAPI")]
     [ApiController]
     public class PatientAPIController : ControllerBase
     {
@@ -37,7 +37,7 @@ namespace HospitalManagement.Controllers
         }
 
         // GET: api/PatientAPI/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}", Name = "GetPatient")]
         public string Get(int id)
         {
             return "value";
