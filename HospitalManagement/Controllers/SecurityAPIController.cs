@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -10,7 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace HospitalManagement.Controllers
 {
-    [Route("api/SecurityAPI")]
+    [Route("api/[controller]")]
     [ApiController]
     public class SecurityAPIController : ControllerBase
     {
@@ -21,6 +22,13 @@ namespace HospitalManagement.Controllers
 
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("2525255666665566"));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var claims = new[] {
+            new Claim(JwtRegisteredClaimNames.Sub,"amin"),
+            new Claim(JwtRegisteredClaimNames.Email,""),
+            new Claim("Admin","true"),
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+    };
 
             var token = new JwtSecurityToken("amin",
               "amin",

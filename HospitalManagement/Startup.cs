@@ -33,32 +33,51 @@ namespace HospitalManagement
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-             
-        services.Configure<CookiePolicyOptions>(options =>
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                   .AddJwtBearer(options =>
+                   {
+                       options.TokenValidationParameters = new TokenValidationParameters
+                       {
+                           ValidateIssuer = true,
+                           ValidateAudience = true,
+                           ValidateLifetime = true,
+                           ValidateIssuerSigningKey = true,
+                           ValidIssuer = "amin",
+                           ValidAudience = "amin",
+                           IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("2525255666665566"))
+                       };
+                   });
+
+
+            services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-             /*   services.AddCors(options =>
-                {
-                    options.AddPolicy(MyAllowSpecificOrigins,
-                    builder =>
-                    {
-                        builder.WithOrigins("http://localhost:4200")
-                                            .AllowAnyHeader()
-                                            .AllowAnyMethod();
-                    });
-                });  */
-
-   //         services.AddController().AddNewtonSoftJson(options =>{
-     //           options.SerializerSettings.ContractResolver = new DefaultContractResolver();
-       //    });
+           
 
 
+            /*   services.AddCors(options =>
+               {
+                   options.AddPolicy(MyAllowSpecificOrigins,
+                   builder =>
+                   {
+                       builder.WithOrigins("http://localhost:4200")
+                                           .AllowAnyHeader()
+                                           .AllowAnyMethod();
+                   });
+               });  */
 
-                  services.AddCors(options =>
+            //         services.AddController().AddNewtonSoftJson(options =>{
+            //           options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+            //    });
+
+
+
+            services.AddCors(options =>
                           options.AddPolicy("MyAllowSpecificOrigins",
                             builder =>
                             {
@@ -70,27 +89,14 @@ namespace HospitalManagement
            
                         }));
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = Configuration["Jwt:Issuer"],
-            ValidAudience = Configuration["Jwt:Issuer"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
-        };
-    });
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            
+            app.UseAuthentication();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

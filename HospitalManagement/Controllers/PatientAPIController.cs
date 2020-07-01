@@ -5,14 +5,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using HospitalManagement.DAL;
 using HospitalManagement.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HospitalManagement.Controllers
 {
-    [Route("api/PatientAPI")]
+    [Authorize]
+    [Route("api/[controller]")]
     [ApiController]
+    
     public class PatientAPIController : ControllerBase
     {
 
