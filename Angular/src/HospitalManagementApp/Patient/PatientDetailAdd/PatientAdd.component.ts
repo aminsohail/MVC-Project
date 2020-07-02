@@ -19,7 +19,7 @@ export class PatientAddComponent {
   // Add(){
   //   this.PatientList.push(this.patientObj)
   // }
-
+  successMessage=0;
    Submit(){
 
         let patientDetail={
@@ -36,6 +36,7 @@ export class PatientAddComponent {
 
       }
   Success(res){
+    this.successMessage=1
     this.patientList=res;
     this.patientObj=new PatientModel();
   }

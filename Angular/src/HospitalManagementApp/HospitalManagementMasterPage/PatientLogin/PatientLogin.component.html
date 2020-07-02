@@ -1,0 +1,29 @@
+<form>
+  <div class="uk-margin">
+        <div class="uk-inline">
+            <span class="uk-form-icon" uk-icon="icon: user"></span>
+            <input  [(ngModel)]="patientLoginObj.userName"
+                    class="uk-input"
+                    name="userName"
+                    placeholder="Username"
+                    type="text">
+        </div>
+    </div>
+
+    <div class="uk-margin">
+        <div class="uk-inline">
+            <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+            <input  [(ngModel)]="patientLoginObj.password"
+                    class="uk-input"
+                    placeholder="Password"
+                    name="Password"
+                    type="password">
+        </div>
+    </div>
+    <div class="uk-margin">
+        <div class="uk-inline">
+            
+            <input type="submit" value="Login" class="uk-button uk-button-primary" (click)="Login()">
+        </div>
+    </div> 
+</form> 

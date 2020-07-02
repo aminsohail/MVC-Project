@@ -4,9 +4,11 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms"
 import {RouterModule} from "@angular/router"
 import { HttpClientModule } from '@angular/common/http';
 import { HospitalManagementMasterPageComponent } from './HospitalManagementMasterPage/HospitalManagementMasterPage.component';
+import { PatientLoginComponent } from './HospitalManagementMasterPage/PatientLogin/PatientLogin.component';
 @NgModule({
   declarations: [
-    HospitalManagementMasterPageComponent
+    HospitalManagementMasterPageComponent,
+    PatientLoginComponent
   ],
   imports: [
     RouterModule.forRoot([
@@ -15,11 +17,13 @@ import { HospitalManagementMasterPageComponent } from './HospitalManagementMaste
              //   loadChildren:()=> 
               //  import('./Patient/PatientDetailAdd/PatientAdd.module')
               // .then(m =>m.PatientAddModule)},
-      {path:'Patient',loadChildren:'./Patient/PatientSearch/PatientSearch.module#PatientSearchModule'}
+      {path:'Patient',loadChildren:'./Patient/PatientSearch/PatientSearch.module#PatientSearchModule'},
             //    loadChildren:()=>
             //    import('./Patient/PatientSearch/PatientSearch.module')
              //   .then(m=>m.PatientSearchModule)}
    //   {path:'**', component:HospitalManagementMasterPageComponent}
+
+      {path:'PatientLogin', component:PatientLoginComponent}
     ]),
     BrowserModule,
     FormsModule,

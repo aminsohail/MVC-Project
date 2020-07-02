@@ -1,46 +1,49 @@
-<nav>
-  
-<ul style="margin-left: 900px;">
-    
-	<li>
-		<a href="#">
-			<span>Home</span>
-			<span>Home</span>
-		</a>
-	</li>
-	<li>
-		<a href="#">
-			<span>About</span>
-			<span>About</span>
-		</a>
-	</li>
-	<li>
-		<a [routerLink]="['Patient/Add']">
-			<span>Add Patient</span>
-			<span>Add Patient</span>
-		</a>
-	</li>
-	<li>
-		<a [routerLink]="['Patient/Search']">
-			<span>Search Patient</span>
-			<span>Search Patient</span>
-		</a>
-	</li>
-	<li>
-		<a href="#">
-			<span>Team</span>
-			<span>Team</span>
-		</a>
-	</li>
-	<li>
-		<a href="#">
-			<span>Contact</span>
-			<span>Contact</span>
-		</a>
-	</li>
-</ul>
+<nav style="background-color: rgb(159, 234, 240);" class="uk-navbar-container" uk-navbar>
+		<div class="uk-navbar-left">
+				<ul class="uk-navbar-nav">
+					<li><a class="uk-navbar-item uk-logo" href="#">Hospital Management EMR</a></li>	
+			  </ul>
+			</div>
 
-</nav>
+		<div class="uk-navbar-right">
+	
+			<ul class="uk-navbar-nav">
+				
+				<li>
+					<a href="#">Patient</a>
+					<div class="uk-navbar-dropdown">
+						<ul class="uk-nav uk-navbar-dropdown-nav">
+							<li><a class="uk-active" [routerLink]="['Patient/Add']">PATIENT ADD</a></li>
+							<li><a class="uk-active" [routerLink]="['Patient/Search']">PATIENT SEARCH</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="#">Doctor</a></li>
+				<li><a href="#">Staff</a></li>
+				<li><a [routerLink]="['PatientLogin']">Login</a></li>
+			</ul>
+	
+		</div>
+	
+	</nav>
 
-<h1>Welcome To Hospital Management</h1>
-<div style="margin-left: 300px;"><router-outlet></router-outlet></div>
+	
+	
+	<div style="margin-left: 200px; margin-top: 50px; margin-right: 200px;">
+			<router-outlet></router-outlet>
+	</div>
+	
+	
+
+<!-- <div style="margin-left: 300px;">
+	 <a [routerLink]="['PatientLogin']">Login </a><br><br>
+	<a [routerLink]="['Patient/Search']">
+		<span>Search Patient</span>
+	</a><br><br>
+	<a [routerLink]="['Patient/Add']">
+		<span>Add Patient</span>
+		
+	</a>
+	<h1>Welcome To Hospital Management</h1>	
+	<router-outlet></router-outlet>
+</div> -->

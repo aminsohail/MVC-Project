@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using HospitalManagement.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -17,18 +18,40 @@ namespace HospitalManagement.Controllers
     {
         // GET: api/SecurityAPI
         [HttpGet]
-        public IEnumerable<string> Get()
-        {
+   //     public IEnumerable<string> Get()
+   //     {
 
+   //         var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("2525255666665566"));
+   //         var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+   //         var claims = new[] {
+   //         new Claim(JwtRegisteredClaimNames.Sub,"amin"),
+   //         new Claim(JwtRegisteredClaimNames.Email,""),
+   //         new Claim("Admin","true"),
+    //        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+    //        };
+
+    //        var token = new JwtSecurityToken("amin",
+      //        "amin",
+      //        null,
+      //        expires: DateTime.Now.AddMinutes(120),
+      //        signingCredentials: credentials);
+
+       //     string tokenString= new JwtSecurityTokenHandler().WriteToken(token);
+       //     return new string[] { tokenString };
+       // }
+
+        private string GenerateJSONWebToken(string userName)
+        {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("2525255666665566"));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var claims = new[] {
-            new Claim(JwtRegisteredClaimNames.Sub,"amin"),
+            new Claim(JwtRegisteredClaimNames.Sub, userName),
             new Claim(JwtRegisteredClaimNames.Email,""),
             new Claim("Admin","true"),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-    };
+            };
 
             var token = new JwtSecurityToken("amin",
               "amin",
@@ -36,8 +59,8 @@ namespace HospitalManagement.Controllers
               expires: DateTime.Now.AddMinutes(120),
               signingCredentials: credentials);
 
-            string tokenString= new JwtSecurityTokenHandler().WriteToken(token);
-            return new string[] { tokenString };
+            string tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+            return tokenString;
         }
 
         // GET: api/SecurityAPI/5
@@ -49,8 +72,18 @@ namespace HospitalManagement.Controllers
 
         // POST: api/SecurityAPI
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] LoginModel obj)
         {
+            if ((obj.userName=="Amin")&&(obj.password=="Sohail"))
+            {
+                obj.token = GenerateJSONWebToken(obj.userName);
+                obj.password = "";
+                return Ok(obj);
+            }
+            else
+            {
+                return StatusCode(401, "Unauthorized Crediantial");
+            }
         }
 
         // PUT: api/SecurityAPI/5

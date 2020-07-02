@@ -1,17 +1,26 @@
  
-   <input type="text" [(ngModel)]="patientName"><br><br>
-   <input type="button" (click)="Search()" value="Search"> <br><br>    
  
+   <div class="uk-margin">
+      <form class="uk-search uk-search-default">
+          <a (click)="Search()" class="uk-search-icon-flip" uk-search-icon></a>
+          <input [(ngModel)]="patientName" name="PatientNameSearch" class="uk-search-input" type="search" placeholder="Search...">
+      </form>  
         
-        
-        
-    <table border="3px">    
-        <tr>
-          <td>Patient name</td>
-          <td>Patient Description</td>
-        </tr>
-        <tr *ngFor="let c of patientModel">
-          <td>{{c.name}}</td>
-          <td>{{c.problemDescription}}</td>
-        </tr>
-    </table>
+    
+      
+                  <table class="uk-table uk-table-divider">
+                      <thead>
+                          <tr>
+                              <th>Name</th>
+                              <th>Description</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr  *ngFor="let c of patientModel" >
+                              <td>{{c.name}}</td>
+                              <td>{{c.problemDescription}}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+
+              

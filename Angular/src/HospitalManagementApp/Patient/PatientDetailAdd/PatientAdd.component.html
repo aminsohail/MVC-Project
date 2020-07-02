@@ -1,4 +1,4 @@
-
+<!-- 
 <form [formGroup]="patientObj.formPatientGroup">
   Patient Name: <input type="text"
                        formControlName="NameControl"
@@ -26,33 +26,87 @@
 <br />
 
 </form>
-  <!-- <div *ngIf="">
-    <span></span>
-  </div>   -->
-  <table border="3px 5px" >
-      <!-- <span style="color: red;" *ngIf="errorMsg.error[0]">
-        {{errorMsg.error[0].errorMessage}}
-      </span ><br/><br/>
-      <span style="color: red;" *ngIf="errorMsg.error[1]">
-        {{errorMsg.error[1].errorMessage}}
-      </span><br/><br/> -->
-    <!-- <tr>
-      <td>Patient name</td>
-      <td>Patient Description</td>
-    </tr>
-    <tr *ngFor="let c of patientList">
-      <td>{{c.name}}</td>
-      <td>{{c.problemDescription}}</td>
-  </tr> -->
+ 
+
+<table class="uk-table uk-table-divider">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr  *ngFor="let c of patientList" >
+            <td>{{c.name}}</td>
+            <td>{{c.problemDescription}}</td>
+        </tr>
+    </tbody>
+</table>
+ -->
+
+ <div *ngIf="successMessage" id="successMessage" class="uk-alert-success" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p>Successfull Added</p>
+</div>
+
+<form [formGroup]="patientObj.formPatientGroup" class="uk-form-horizontal uk-margin-large">
+
+    <div class="uk-margin">
+        <label class="uk-form-label" for="form-horizontal-text">PATIENT NAME</label>
+        <div class="uk-form-controls">
+            <input  formControlName="NameControl"
+                    [(ngModel)]="patientObj.name" 
+                    class="uk-input" 
+                    id="form-horizontal-text" 
+                    type="text" 
+                    placeholder="Patient Name">
+        </div>
+        <div style="margin-left: 215px;" class="uk-alert-danger" uk-alert [hidden]="!(patientObj.formPatientGroup
+                        .controls['NameControl']
+                        .hasError('required'))">
+            Patient Name is required
+         </div>
+    </div>
+    <div class="uk-margin">
+        <label class="uk-form-label" for="form-horizontal-text">PATIENT PROBLEM</label>
+        <div class="uk-form-controls">
+            <input formControlName="ProblemDescriptionControl"
+                   [(ngModel)]="patientObj.problemDescription" 
+                   class="uk-input" id="form-horizontal-text" 
+                   type="text" 
+                   placeholder="Patient Problem">
+        </div>
+        <div style="margin-left: 215px;" class="uk-alert-danger" uk-alert [hidden]="!(patientObj.formPatientGroup
+                        .controls['ProblemDescriptionControl']
+                        .hasError('required'))">
+            Patient Problem is required
+        </div>
+    </div>
+
+    <div class="uk-margin">
+        <div class="uk-inline">
+            <input type="Submit"
+                    value="Submit" 
+                    [disabled]="!(patientObj.formPatientGroup.valid)"
+                    class="uk-button uk-button-primary" 
+                    (click)="Submit()">
+        </div>
+      </div>
+</form>
+
+<table class="uk-table uk-table-divider">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr  *ngFor="let c of patientList" >
+            <td>{{c.name}}</td>
+            <td>{{c.problemDescription}}</td>
+        </tr>
+    </tbody>
+</table>
 
 
-  <tr>
-    <td>Patient name</td>
-    <td>Patient Description</td>
-  </tr>
-  <tr *ngFor="let c of patientList">
-    <td>{{c.name}}</td>
-    <td>{{c.problemDescription}}</td>
-</tr>
-  </table>
-<br><br><br>
