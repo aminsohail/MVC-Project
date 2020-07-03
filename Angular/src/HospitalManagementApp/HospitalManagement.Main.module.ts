@@ -2,22 +2,33 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms"
 import {RouterModule} from "@angular/router"
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HospitalManagementMasterPageComponent } from './HospitalManagementMasterPage/HospitalManagementMasterPage.component';
 import { PatientLoginComponent } from './HospitalManagementMasterPage/PatientLogin/PatientLogin.component';
+import { User } from './HospitalManagementMasterPage/PatientLogin/PatientLogin.Model';
+import { AuthGuard } from './Shared/Auth.guard';
+import { HomeComponent } from './HospitalManagementMasterPage/home/home.component';
+import { TokenInterceptor } from './Shared/Token.Interceptor';
+import { AuthService } from './Shared/Auth.Service';
 @NgModule({
   declarations: [
     HospitalManagementMasterPageComponent,
-    PatientLoginComponent
+    PatientLoginComponent,
+    HomeComponent
   ],
   imports: [
     RouterModule.forRoot([
-      
-      {path:'Patient', loadChildren:'./Patient/PatientDetailAdd/PatientAdd.module#PatientAddModule'},
+      {path:'', component:HomeComponent},
+      {path:'Home', component:HomeComponent, canActivate:[AuthGuard]},
+      {path:'Patient', 
+              loadChildren:'./Patient/PatientDetailAdd/PatientAdd.module#PatientAddModule', 
+              canActivate:[AuthGuard]},
              //   loadChildren:()=> 
               //  import('./Patient/PatientDetailAdd/PatientAdd.module')
               // .then(m =>m.PatientAddModule)},
-      {path:'Patient',loadChildren:'./Patient/PatientSearch/PatientSearch.module#PatientSearchModule'},
+      {path:'Patient',
+              loadChildren:'./Patient/PatientSearch/PatientSearch.module#PatientSearchModule', 
+              canActivate:[AuthGuard]},
             //    loadChildren:()=>
             //    import('./Patient/PatientSearch/PatientSearch.module')
              //   .then(m=>m.PatientSearchModule)}
@@ -30,7 +41,15 @@ import { PatientLoginComponent } from './HospitalManagementMasterPage/PatientLog
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    User, 
+    AuthGuard, 
+    AuthService,
+       { 
+          provide: HTTP_INTERCEPTORS, 
+          useClass: TokenInterceptor, 
+          multi: true }
+    ],
   bootstrap: [HospitalManagementMasterPageComponent]
 })
 export class HospitalManagementModule { }

@@ -5,6 +5,7 @@ import {RouterModule} from "@angular/router";
 import { HttpClientModule } from '@angular/common/http';
 import { PatientSearchComponent } from './PatientSearch.component';
 import { CommonModule } from '@angular/common';
+import { AuthGuard } from 'src/HospitalManagementApp/Shared/Auth.guard';
 @NgModule({
   declarations: [
     PatientSearchComponent
