@@ -9,7 +9,6 @@ import { User } from './HospitalManagementMasterPage/PatientLogin/PatientLogin.M
 import { AuthGuard } from './Shared/Auth.guard';
 import { HomeComponent } from './HospitalManagementMasterPage/home/home.component';
 import { TokenInterceptor } from './Shared/Token.Interceptor';
-import { AuthService } from './Shared/Auth.Service';
 @NgModule({
   declarations: [
     HospitalManagementMasterPageComponent,
@@ -44,7 +43,6 @@ import { AuthService } from './Shared/Auth.Service';
   providers: [
     User, 
     AuthGuard, 
-    AuthService,
        { 
           provide: HTTP_INTERCEPTORS, 
           useClass: TokenInterceptor, 

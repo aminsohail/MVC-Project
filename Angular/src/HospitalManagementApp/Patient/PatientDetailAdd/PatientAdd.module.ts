@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PatientAddComponent } from './PatientAdd.component';
 import { CommonModule } from '@angular/common';
 import { AuthGuard } from 'src/HospitalManagementApp/Shared/Auth.guard';
+import { TokenInterceptor } from 'src/HospitalManagementApp/Shared/Token.Interceptor';
 @NgModule({
   declarations: [
     PatientAddComponent
@@ -18,7 +19,10 @@ import { AuthGuard } from 'src/HospitalManagementApp/Shared/Auth.guard';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ { 
+    provide: HTTP_INTERCEPTORS, 
+    useClass: TokenInterceptor, 
+    multi: true }],
   bootstrap: [PatientAddComponent]
 })
 export class PatientAddModule { }

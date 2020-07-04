@@ -6,15 +6,14 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AuthService } from './Auth.Service';
+import { User } from '../HospitalManagementMasterPage/PatientLogin/PatientLogin.Model';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-
-  constructor(public auth:AuthService) {}
+    constructor(private _user:User){}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = this.auth.getAuthToken();
+    const token = this._user.token;
 
     if (token) {
         request = request.clone({
