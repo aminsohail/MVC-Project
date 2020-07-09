@@ -9,17 +9,24 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace HospitalManagement.Controllers
 {
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    
+    [EnableCors("MyAllowSpecificOrigins")]
     public class PatientAPIController : ControllerBase
     {
 
-        [EnableCors("MyAllowSpecificOrigins")]
+        string ConStr = "";
+
+        public PatientAPIController(IConfiguration configuration) {
+            ConStr = configuration["conStr"];
+        }
+
+
         // GET: api/PatientAPI
         [HttpGet]
         //  public IEnumerable<string> Get()
@@ -29,7 +36,7 @@ namespace HospitalManagement.Controllers
 
         public IActionResult Get(string patientName)
         {
-            PatientDAL dal = new PatientDAL();
+            PatientDAL dal = new PatientDAL(ConStr);
             List<PatientModel> search = (from temp in dal.PatientModels
                                          where temp.name == patientName
                                          select temp)

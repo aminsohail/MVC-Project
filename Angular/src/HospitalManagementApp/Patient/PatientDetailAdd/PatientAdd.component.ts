@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {PatientModel} from './PatientAdd.model';
+import {PatientModel, PatientProblem} from './PatientAdd.model';
 
 
 @Component({
@@ -15,18 +15,28 @@ export class PatientAddComponent {
   errorMsg=[];
   patientObj:PatientModel= null;
   patientList:Array<PatientModel>=new Array<PatientModel>();
+  patientProblem:PatientProblem = new PatientProblem();
   
   // Add(){
   //   this.PatientList.push(this.patientObj)
   // }
   successMessage=0;
-   Submit(){
 
-        let patientDetail={
-          id:this.patientObj.id,
-          name: this.patientObj.name,
-          problemDescription:this.patientObj.problemDescription
-        }
+  AddProblem(){
+      this.patientObj.patientProblemCollection.push(this.patientProblem);
+      this.patientProblem = new PatientProblem();
+   }
+   Submit(){
+    
+    var patientDetail:any={}
+       // let patientDetail={
+        patientDetail.id=this.patientObj.id;
+        patientDetail.name= this.patientObj.name;
+        patientDetail.problems=[];
+        patientDetail.problems= this.patientObj.patientProblemCollection;
+       //   problemDescription:this.patientObj.problemDescription
+          
+//}
 
               this.Http.post("https://localhost:44372/api/PatientAPI", patientDetail)
                   .subscribe(
@@ -37,6 +47,7 @@ export class PatientAddComponent {
       }
   Success(res){
     this.successMessage=1
+    debugger;
     this.patientList=res;
     this.patientObj=new PatientModel();
   }

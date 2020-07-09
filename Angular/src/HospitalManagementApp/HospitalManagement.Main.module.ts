@@ -17,11 +17,13 @@ import { TokenInterceptor } from './Shared/Token.Interceptor';
   ],
   imports: [
     RouterModule.forRoot([
-      {path:'', component:HomeComponent},
-      {path:'Home', component:HomeComponent, canActivate:[AuthGuard]},
+      {path:'', component:HomeComponent, canActivate:[AuthGuard]},
+     //{path:'', component:HomeComponent},
+    //  {path:'Home', component:HomeComponent, canActivate:[AuthGuard]},
+    {path:'Home', component:HomeComponent, canActivate:[AuthGuard]},
       {path:'Patient', 
-              loadChildren:'./Patient/PatientDetailAdd/PatientAdd.module#PatientAddModule', 
-              canActivate:[AuthGuard]},
+              loadChildren:'./Patient/PatientDetailAdd/PatientAdd.module#PatientAddModule',
+                canActivate:[AuthGuard]},
              //   loadChildren:()=> 
               //  import('./Patient/PatientDetailAdd/PatientAdd.module')
               // .then(m =>m.PatientAddModule)},

@@ -1,5 +1,5 @@
 export class User{
-    userName: string=""
-    password: string=""
+    userName: string="Amin"
+    password: string="Sohail"
     token: string=""
 }

@@ -16,7 +16,17 @@ namespace HospitalManagement.Models
          [RegularExpression("^[a-z]{1,10}$")]
         public string name { get; set; }
 
-        [Required]
-        public string problemDescription { get; set; }
+       // public string problemDescription { get; set; }
+
+         public List<Problem> problems { get; set; }
+
     }
+
+      public class Problem
+       {
+
+          public int id { get; set; }
+          public string problemDescription { get; set; }
+         public PatientModel patient { get; set; }   //Imverse Navigation Property
+      }
 }

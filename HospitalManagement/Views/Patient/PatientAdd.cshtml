@@ -19,7 +19,8 @@
 <body>
     <form action="/Patient/Submit" method="post">
         Patient Name: <input type="text" name="name" value="" /><br /><br />
-        Patient Problem: <input type="text" name="problemDescription" value="" /><br /><br />
+        <!--   Patient Problem: <input type="text" name="problemDescription" value="" /><br /><br />
+    -->
         <input type="submit" value="submit" />
     </form><br /><br /><br />
     <table>
@@ -29,10 +30,9 @@
         </tr>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>@item.name</td>
-                <td>@item.problemDescription</td>
-            </tr>
+        <tr>
+            <td>@item.name</td>
+        </tr>
         }
     </table>
 </body>

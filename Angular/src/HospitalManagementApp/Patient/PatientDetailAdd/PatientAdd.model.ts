@@ -7,7 +7,9 @@ import{ NgForm,
 export class PatientModel{
     id: number=0;
     name:string = "";
-    problemDescription:string = "";
+  //  problemDescription:string = "";
+
+    patientProblemCollection: Array<PatientProblem>= new Array<PatientProblem>();  //  Just an Array to store multiple Problem Description
 
     // Create object of FormGroup
     formPatientGroup: FormGroup = null;
@@ -32,4 +34,10 @@ export class PatientModel{
     }
 
 
+}
+
+
+export class PatientProblem{
+    id: number=0;
+    problemDescription:string="";
 }

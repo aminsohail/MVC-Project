@@ -33,7 +33,7 @@ export class PatientLoginComponent{
   Success(res){
   //  alert(res.token)
   this.userObj.token=res.token;
-  this.route.navigate(['/Home']);
+  this.route.navigate(['Home']);
   }
   Error(res){}
  

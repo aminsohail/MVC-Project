@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from './PatientLogin/PatientLogin.Model';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HospitalManagementMasterPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _user: User) { }
 
   ngOnInit() {
   }
+  
 
 }
