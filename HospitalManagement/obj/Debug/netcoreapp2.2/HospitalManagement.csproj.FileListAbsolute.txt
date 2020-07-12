@@ -90,3 +90,4 @@ C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\ob
 C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.dll
 C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.pdb
 C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.csproj.CopyComplete
+C:\Users\AminSohail\Desktop\HospitalManagement1\New folder\HospitalManagement\obj\Debug\netcoreapp2.2\HospitalManagement.csprojAssemblyReference.cache

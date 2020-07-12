@@ -74,10 +74,10 @@ namespace HospitalManagement.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] LoginModel obj)
         {
-            if ((obj.userName=="Amin")&&(obj.password=="Sohail"))
+            if ((obj.UserName == "Amin")&&(obj.Password=="Sohail"))
             {
-                obj.token = GenerateJSONWebToken(obj.userName);
-                obj.password = "";
+                obj.token = GenerateJSONWebToken(obj.UserName);
+                obj.Password = "";
                 return Ok(obj);
             }
             else

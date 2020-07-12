@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HospitalManagement.DAL;
+using HospitalManagement.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -36,6 +38,8 @@ namespace HospitalManagement
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.Configure<SecuritySetting>(Configuration.GetSection("ApplicationSettings"));
+
             var optionsBuilder = new DbContextOptionsBuilder<PatientDAL>();
             optionsBuilder.UseSqlServer(Configuration["conStr"].ToString());
             PatientDAL dal = new PatientDAL(Configuration["conStr"].ToString());
@@ -44,19 +48,49 @@ namespace HospitalManagement
             services.AddDbContext<PatientDAL>(
                 options => options.UseSqlServer(Configuration["conStr"].ToString()) );
 
+//            services.AddDbContext<PatientDAL>(options =>
+ //           options.UseSqlServer(Configuration.GetConnectionString("conStr")));
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                   .AddJwtBearer(options =>
-                   {
-                       options.TokenValidationParameters = new TokenValidationParameters
+    //        services.AddDbContext<RegistrationDAl>(options =>
+      //     options.UseSqlServer(@"Data Source=LAPTOP-H6C5O2EO;Initial Catalog=HospitalManagement;Integrated Security=True"));
+
+            services.AddDefaultIdentity<RegisterUser>()
+                .AddEntityFrameworkStores<PatientDAL>();
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 4;
+            }
+            );
+
+            var key = Encoding.UTF8.GetBytes(Configuration["ApplicationSettings:JWT_Secret"].ToString());
+
+            // services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+
+                 services.AddAuthentication(x =>
+                    {
+                     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                     x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                     x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                   })
+                       .AddJwtBearer(options =>
                        {
-                           ValidateIssuer = true,
-                           ValidateAudience = true,
-                           ValidateLifetime = true,
-                           ValidateIssuerSigningKey = true,
-                           ValidIssuer = "amin",
-                           ValidAudience = "amin",
-                           IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("2525255666665566"))
+                           options.RequireHttpsMetadata = false;
+                           options.SaveToken = false;
+                           options.TokenValidationParameters = new TokenValidationParameters
+                           {
+                               ValidateIssuer = true,
+                               ValidateAudience = true,
+                               ValidateLifetime = true,
+                               ValidateIssuerSigningKey = true,
+                               ValidIssuer = "amin",
+                               ValidAudience = "amin",
+                               ClockSkew = TimeSpan.Zero,
+                               IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("2525255666665566"))
                        };
                    });
 
@@ -107,6 +141,15 @@ namespace HospitalManagement
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.Use(async (ctx, next) =>
+            {
+                await next();
+                if (ctx.Response.StatusCode == 204)
+                {
+                    ctx.Response.ContentLength = 0;
+                }
+            });
+
             app.UseAuthentication();
             if (env.IsDevelopment())
             {

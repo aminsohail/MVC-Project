@@ -9,7 +9,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+
 
 namespace HospitalManagement.Controllers
 {
@@ -19,14 +21,14 @@ namespace HospitalManagement.Controllers
     [EnableCors("MyAllowSpecificOrigins")]
     public class PatientAPIController : ControllerBase
     {
-
+       
         string ConStr = "";
 
         public PatientAPIController(IConfiguration configuration) {
             ConStr = configuration["conStr"];
         }
 
-
+       
         // GET: api/PatientAPI
         [HttpGet]
         //  public IEnumerable<string> Get()
@@ -81,18 +83,37 @@ namespace HospitalManagement.Controllers
                 dal.Database.EnsureCreated(); // ensure table is created or not
                 dal.Add(obj); // here obj is UI comming object //it adds in memory not in database
                 dal.SaveChanges();// pysical commit save to database
-                
 
-                List<PatientModel> recs = dal.PatientModels.ToList<PatientModel>();
-                // return Json(recs);
+
+                // List<PatientModel> recs = dal.PatientModels.
+                //     Include("problems").ToList();
+                List<PatientModel> recs = dal.PatientModels.
+                                        Include(x=>x.problems).
+                                        ToList();
+                 List<Problem> patientProb = dal.Problems.ToList();
+
+
+                var pat = new PatientModel
+                     {
+                         problems = new List<Problem>()
+
+                  };
+
+
+                 //recs.Add(pat);
+
 
                 return StatusCode(200, recs); // 200 for success 
+               // return Ok(recs);
             }
             else
             {
                 return StatusCode(500, result); // 500 for internal server error
             }
         }
+
+       
+
 
         // PUT: api/PatientAPI/5
         [HttpPut("{id}")]

@@ -38,6 +38,8 @@ namespace HospitalManagement.DAL
 
             modelBuilder.Entity<Problem>()
                 .ToTable("tb1Problem");
+          //  modelBuilder.Entity<RegisterModel>()
+            //    .ToTable("tb1Registeration");
 
             modelBuilder.Entity<PatientModel>()
                 .HasKey(p => p.id);
@@ -46,6 +48,8 @@ namespace HospitalManagement.DAL
 
             modelBuilder.Entity<Problem>()
                .HasKey(p => p.id);
+          //  modelBuilder.Entity<RegisterModel>()
+          //    .HasKey(p => p.UserName);
 
             // 1 to many
             modelBuilder.Entity<PatientModel>()
@@ -57,6 +61,8 @@ namespace HospitalManagement.DAL
 
         public DbSet<PatientModel> PatientModels { get; set; }
         public DbSet<Problem> Problems { get; set; }
+        public DbSet<RegisterUser> RegisterUsers { get; set; }
+
 
 
     }

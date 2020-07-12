@@ -1,0 +1,132 @@
+<!-- <form [formGroup]="service.formModel" (submit)="onSubmit()">
+  <div class="uk-margin">
+        <div class="uk-inline">
+            <span class="uk-form-icon" uk-icon="icon: user"></span>
+            <input  formControlName="UserName"
+                    class="form-control uk-input"
+                    name="userName"
+                    placeholder="Username"
+                    type="text">
+                    <label class="text-danger" 
+                           *ngIf="service.formModel.get('UserName').touched && service.formModel.get('UserName').errors?.required">
+                           This field is mandatory.
+                    </label>      
+        </div>
+    </div>
+
+    <div class="uk-margin">
+      <div class="uk-inline">
+          <span class="uk-form-icon" uk-icon="icon: mail"></span>
+          <input formControlName="Email"
+                  class="form-control uk-input"
+                  name="email"
+                  placeholder="Email"
+                  type="email">
+        <label class="uk-alert-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">
+         Invalid email address.
+        </label>
+      
+               
+      </div>
+  </div>
+
+    <div class="uk-margin">
+        <div class="uk-inline">
+  
+            <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+            <input formControlName="Password"
+                    class="form-control uk-input"
+                    placeholder="Password"
+                    name="Password"
+                    type="password">
+
+ <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.required">This field is mandatory.</label>
+  <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.minlength">Minimum 4 characters required.</label>
+                
+        </div>
+    </div>
+
+    <div class="uk-margin">
+      <div class="uk-inline">
+        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+          <input  formControlName="ConfirmPassword"
+                  class="form-control uk-input"
+                  placeholder="Confirm Password"
+                  name="ConfirmPassword"
+                  type="password">
+   <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.required">This field is mandatory.</label>
+   <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.passwordMismatch">Confirm Password does not match.</label>
+              
+
+      </div>
+  </div>
+
+    <div class="uk-margin">
+        <div class="uk-inline">
+            
+            <input [disabled]="!service.formModel.valid" type="submit" value="Sign up" class="uk-button uk-button-primary">
+        </div>
+    </div> 
+</form> 
+<div style="margin-right: 900px;" class="uk-alert-primary" uk-alert>
+  <a class="uk-alert-close" uk-close></a>
+  <p> Already Account then click Here    
+        <input type="submit" value="Sign in" class="uk-button uk-button-primary" (click)="signIn()">
+    
+      </p>
+</div>
+ -->
+
+
+ <div class="row mt-4">
+    
+    <div class="col-md-6">
+      <form [formGroup]="service.formModel">
+        <div class="form-group required">
+          <div class="uk-inline">
+          <span class="uk-form-icon" uk-icon="icon: user"></span>
+          <input class="form-control uk-input" formControlName="UserName"  placeholder="Username">
+          <label class="text-danger" *ngIf="service.formModel.get('UserName').touched && service.formModel.get('UserName').errors?.required">This field is mandatory.</label>
+        </div></div>
+        <div class="form-group">
+            <div class="uk-inline">
+              <span class="uk-form-icon" uk-icon="icon: user"></span>
+            <input class="form-control uk-input" placeholder="Full Name" formControlName="FullName">
+          </div></div>
+        <div class="form-group">
+            <div class="uk-inline">
+                <span class="uk-form-icon" uk-icon="icon: mail"></span>
+          <input class="form-control uk-input" formControlName="Email"  placeholder="Email">
+          <label class="text-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">Invalid email address.</label>
+        </div></div>
+        <div formGroupName="Passwords">
+          <div class="form-group required">
+              <div class="uk-inline">
+                  <span class="uk-form-icon" uk-icon="icon: lock"></span>
+            <input type="password" class="form-control uk-input" formControlName="Password"  placeholder="Password">
+            <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.required">This field is mandatory.</label>
+            <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.minlength">Minimum 4 characters required.</label>
+          </div></div>
+          <div class="form-group required">
+            <div class="uk-inline">
+              <span class="uk-form-icon" uk-icon="icon: lock"></span>
+            <input type="password" class="form-control uk-input" formControlName="ConfirmPassword"  placeholder="Confirm Password">
+            <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.required">This field is mandatory.</label>
+            <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.passwordMismatch">Confirm Password does not match.</label>
+          </div></div>
+        </div>
+        <div class="uk-margin">
+          <div class="uk-inline">
+            <button type="submit" class="uk-button uk-button-primary" [disabled]="!service.formModel.valid" (click)="Register()">Sign Up</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div style="margin-right: 900px;" class="uk-alert-primary" uk-alert>
+      <a class="uk-alert-close" uk-close></a>
+      <p> Already Account then click Here    
+            <input type="submit" value="Sign in" class="uk-button uk-button-primary" (click)="signIn()">
+        
+          </p>
+    </div>
